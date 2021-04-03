@@ -100,7 +100,7 @@ jobs:
       with:
         tag_name: AutoUpdate
         body_path: update_log.txt
-        files: artifact/*
+        files: openwrt/bin/*
         
     - name: Remove old Release
       uses: dev-drprasad/delete-older-releases@v0.1.0
