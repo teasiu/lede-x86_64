@@ -1,0 +1,37 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: teasiu <teasiu@qq.com>
+Date: Sat, 3 Apr 2021 16:42:37 +0800
+Subject: [PATCH 6/6] add lede profile
+
+Signed-off-by: teasiu <teasiu@qq.com>
+---
+ package/base-files/files/etc/profile | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
+
+diff --git a/package/base-files/files/etc/profile b/package/base-files/files/etc/profile
+index 0beff1608..c29194073 100644
+--- a/package/base-files/files/etc/profile
++++ b/package/base-files/files/etc/profile
+@@ -38,3 +38,19 @@ in order to prevent unauthorized SSH logins.
+ --------------------------------------------------
+ EOF
+ fi
++
++Target=$([ -f /etc/openwrt_info ] && cat /etc/openwrt_info | awk 'NR==3')
++Version=$([ -f /etc/openwrt_info ] && cat /etc/openwrt_info | awk 'NR==1')
++[ -z "${Target}" ] && Target=$(jsonfilter -e '@.model.id' < /etc/board.json | tr ',' '_')
++IP_Address=$(ifconfig -a | grep inet | grep -v 127.0.0.1 | grep -v inet6 | awk '{print $2}' | tr -d "addr:" | awk 'NR==1')
++CoreMark=$([ -f /etc/bench.log ] && egrep -o "[0-9]+" /etc/bench.log | awk 'NR==1')
++[ -z "${CoreMark}" ] && CoreMark=0
++Srartup=$(awk '{a=$1/86400;b=($1%86400)/3600;c=($1%3600)/60} {printf("%d 天 %d 小时 %d 分钟\n",a,b,c)}' /proc/uptime)
++Overlay_Available="$(df -h | grep ":/overlay" | awk '{print $4}' | awk 'NR==1')"
++
++echo -e "\n\n           设备名称:		${Target}"
++echo "           固件版本:		${Version}"
++echo "           IP 地址: 		${IP_Address}"
++echo "           运行时间: 		${Srartup}"
++echo "           CoreMark 得分: 	${CoreMark}"
++echo -e "           可用空间:		${Overlay_Available}\n"
+-- 
+2.20.1
+
