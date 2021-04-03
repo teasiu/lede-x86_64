@@ -36,9 +36,9 @@ jobs:
     if: github.event.repository.owner.id == github.event.sender.id
     steps:
     - name: Checkout Project
-        uses: actions/checkout@v2
-        with:
-          ref: main
+      uses: actions/checkout@v2
+      with:
+        ref: main
 
     - name: Initialization Environment
       env:
