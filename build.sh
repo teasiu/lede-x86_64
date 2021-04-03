@@ -17,7 +17,7 @@ git clone https://github.com/coolsnowwolf/lede.git openwrt
 # patch openwrt
 cd "$proj_dir/openwrt"
 cat "$proj_dir/patches"/*.patch | patch -p1
-ln -sf ../../dl dl
+
 # clone feeds
 cd "$proj_dir/openwrt"
 ./scripts/feeds update -a
