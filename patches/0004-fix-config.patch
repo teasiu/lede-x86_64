@@ -1,0 +1,34 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: teasiu <teasiu@qq.com>
+Date: Sat, 3 Apr 2021 14:52:04 +0800
+Subject: [PATCH 4/4] fix config
+
+Signed-off-by: teasiu <teasiu@qq.com>
+---
+ include/target.mk | 7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
+
+diff --git a/include/target.mk b/include/target.mk
+index 4ffbe2985..e65bfebd9 100644
+--- a/include/target.mk
++++ b/include/target.mk
+@@ -13,13 +13,12 @@ __target_inc=1
+ DEVICE_TYPE?=router
+ 
+ # Default packages - the really basic set
+-DEFAULT_PACKAGES:=base-files libc libgcc busybox dropbear mtd uci opkg netifd fstools uclient-fetch logd urandom-seed urngd \
++DEFAULT_PACKAGES:=base-files bash libc libgcc busybox dropbear mtd uci opkg netifd fstools uclient-fetch logd urandom-seed urngd \
+ block-mount coremark kmod-nf-nathelper kmod-nf-nathelper-extra kmod-ipt-raw wget libustream-openssl ca-certificates \
+-default-settings luci luci-app-ddns luci-app-upnp luci-app-autoreboot luci-app-webadmin \
++default-settings luci luci-app-upnp luci-app-autoreboot luci-app-webadmin \
+ luci-app-filetransfer luci-app-vsftpd luci-app-ssr-plus luci-app-unblockmusic \
+ luci-app-arpbind luci-app-vlmcsd luci-app-wol luci-app-ramfree \
+-luci-app-sfe luci-app-nlbwmon luci-app-accesscontrol luci-app-cpufreq \
+-ddns-scripts_aliyun ddns-scripts_dnspod
++luci-app-sfe luci-app-nlbwmon luci-app-accesscontrol luci-app-cpufreq openssl-utils
+ # For the basic set
+ DEFAULT_PACKAGES.basic:=
+ # For nas targets
+-- 
+2.20.1
+
