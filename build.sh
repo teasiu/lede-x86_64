@@ -18,9 +18,22 @@ git clone https://github.com/coolsnowwolf/lede.git openwrt
 cd "$proj_dir/openwrt"
 cat "$proj_dir/patches"/*.patch | patch -p1
 
+# obtain feed list
+cd "$proj_dir/openwrt"
+feed_list=$(awk '/^src-git/ { print $2 }' feeds.conf.default)
+
 # clone feeds
 cd "$proj_dir/openwrt"
 ./scripts/feeds update -a
+
+# patch feeds
+for feed in $feed_list; do
+  [ -d "$proj_dir/patches/$feed" ] &&
+    {
+      cd "$proj_dir/openwrt/feeds/$feed"
+      cat "$proj_dir/patches/$feed"/*.patch | patch -p1
+    }
+done
 
 # modify firmware-info
 cd "$proj_dir/openwrt"
