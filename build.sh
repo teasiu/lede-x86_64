@@ -107,3 +107,5 @@ if [ -f "${EFI_Firmware}" ];then
 			echo -e "\nMD5:${_MD5}\nSHA256:${_SHA256}" > ${AutoBuild_Firmware}-UEFI.detail
 			echo "UEFI Firmware is detected !"
 fi
+qemu-img convert AutoBuild-${TARGET_PROFILE}-${Openwrt_Version}-Legacy.vmdk -O vhdx -o AutoBuild-${TARGET_PROFILE}-${Openwrt_Version}-Legacy.vhdx
+qemu-img convert AutoBuild-${TARGET_PROFILE}-${Openwrt_Version}-UEFI.vmdk -O vhdx -o AutoBuild-${TARGET_PROFILE}-${Openwrt_Version}-UEFI.vhdx
