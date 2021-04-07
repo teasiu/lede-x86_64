@@ -18,7 +18,6 @@ git clone https://github.com/coolsnowwolf/lede.git openwrt
 cd "$proj_dir/openwrt"
 cat "$proj_dir/patches"/*.patch | patch -p1
 
-ln -sf ../../lede_dl dl
 # obtain feed list
 cd "$proj_dir/openwrt"
 feed_list=$(awk '/^src-git/ { print $2 }' feeds.conf.default)
