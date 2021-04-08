@@ -16,7 +16,7 @@ git clone https://github.com/coolsnowwolf/lede.git openwrt
 
 # patch openwrt
 cd "$proj_dir/openwrt"
-cat "$proj_dir/patches"/*.patch | patch -p1
+cat "$proj_dir/patches/newifi"/*.patch | patch -p1
 
 # obtain feed list
 cd "$proj_dir/openwrt"
@@ -55,7 +55,9 @@ cd "$proj_dir/openwrt/package"
 svn co https://github.com/teasiu/lede-other-apps/trunk/luci-app-aliddns custom/luci-app-aliddns
 svn co https://github.com/teasiu/lede-other-apps/trunk/luci-app-autoupdate custom/luci-app-autoupdate
 svn co https://github.com/teasiu/lede-other-apps/trunk/luci-app-admconf custom/luci-app-admconf
+svn co https://github.com/teasiu/lede-other-apps/trunk/luci-app-blog custom/luci-app-blog
 # luci-theme-argon
+rm -rf lean/luci-theme-argon
 git clone -b 18.06 --depth 1 https://github.com/jerrykuku/luci-theme-argon.git custom/luci-theme-argon
 git clone https://github.com/jerrykuku/luci-app-argon-config.git custom/luci-app-argon-config
 git clone https://github.com/xiaorouji/openwrt-passwall passwall
