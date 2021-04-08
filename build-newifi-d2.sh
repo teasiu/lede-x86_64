@@ -43,7 +43,7 @@ Version_File="package/lean/default-settings/files/zzz-default-settings"
 Old_Version="$(egrep -o "R[0-9]+\.[0-9]+\.[0-9]+" ${Version_File})"
 Openwrt_Version="${Old_Version}-${Compile_Date}"
 Owner_Repo="https://github.com/teasiu/lede-x86_64"
-TARGET_PROFILE="newifi-d2"
+TARGET_PROFILE="d-team_newifi-d2"
 Firmware_Type="bin"
 echo "${Openwrt_Version}" > ${AB_Firmware_Info}
 echo "${Owner_Repo}" >> ${AB_Firmware_Info}
