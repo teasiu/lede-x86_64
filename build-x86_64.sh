@@ -59,6 +59,7 @@ svn co https://github.com/teasiu/lede-other-apps/trunk/luci-app-admconf custom/l
 git clone -b 18.06 --depth 1 https://github.com/jerrykuku/luci-theme-argon.git custom/luci-theme-argon
 git clone https://github.com/jerrykuku/luci-app-argon-config.git custom/luci-app-argon-config
 git clone https://github.com/xiaorouji/openwrt-passwall passwall
+git clone https://github.com/Hyy2001X/luci-app-shutdown.git custom/luci-app-shutdown
 # clean up packages
 cd "$proj_dir/openwrt/package"
 find . -name .svn -exec rm -rf {} +
@@ -70,7 +71,7 @@ cd "$proj_dir/openwrt"
 
 # customize configs
 cd "$proj_dir/openwrt"
-cat "$proj_dir/config.seed" >.config
+cat "$proj_dir/config-x86_64.seed" >.config
 make defconfig
 
 # build openwrt

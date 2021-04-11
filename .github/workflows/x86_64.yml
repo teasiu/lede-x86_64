@@ -75,7 +75,7 @@ jobs:
 
     - name: Build OpenWrt
       run: |
-        ./build.sh
+        ./build-x86_64.sh
         df -h
 
     - name: SSH connection to Actions
