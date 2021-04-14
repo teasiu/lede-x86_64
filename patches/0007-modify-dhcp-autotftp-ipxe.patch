@@ -1,0 +1,45 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: teasiu <teasiu@qq.com>
+Date: Thu, 15 Apr 2021 01:57:34 +0800
+Subject: [PATCH] modify dhcp autotftp ipxe
+
+Signed-off-by: teasiu <teasiu@qq.com>
+---
+ .../network/services/dnsmasq/files/dhcp.conf  | 21 +++++++++++++++++++
+ 1 file changed, 21 insertions(+)
+
+diff --git a/package/network/services/dnsmasq/files/dhcp.conf b/package/network/services/dnsmasq/files/dhcp.conf
+index 5acaa7d8e..cf05a3954 100644
+--- a/package/network/services/dnsmasq/files/dhcp.conf
++++ b/package/network/services/dnsmasq/files/dhcp.conf
+@@ -21,6 +21,27 @@ config dnsmasq
+ 	#list bogusnxdomain     '64.94.110.11'
+ 	option localservice	1  # disable to allow DNS requests from non-local subnets
+ 	option filter_aaaa	1
++	option tftp_root '/www/tftp'
++	option dhcp_boot 'undionly.kpxe'
++	option enable_tftp '1'
++
++config match
++        option networkid 'set:bios'
++        option match '60,PXEClient:Arch:00000'
++config match
++        option networkid 'set:efi64'
++        option match '60,PXEClient:Arch:00009'
++config match
++        option networkid 'set:efi64'
++        option match '60,PXEClient:Arch:00007'
++config boot
++        option filename         'tag:bios,undionly.kpxe'
++#        option serveraddress    '10.0.0.1'
++#        option servername       'router'
++config boot
++        option filename         'tag:efi64,uefi/snponly.efi'
++#        option serveraddress    '10.0.0.1'
++#        option servername       'router'
+ 
+ config dhcp lan
+ 	option interface	lan
+-- 
+2.25.1
+
