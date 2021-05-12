@@ -7,10 +7,10 @@ Signed-off-by: teasiu <teasiu@qq.com>
 ---
  package/base-files/files/bin/AutoUpdate.sh | 323 +++++++++++++++++++++
  1 file changed, 323 insertions(+)
- create mode 100644 package/base-files/files/bin/AutoUpdate.sh
+ create mode 100755 package/base-files/files/bin/AutoUpdate.sh
 
 diff --git a/package/base-files/files/bin/AutoUpdate.sh b/package/base-files/files/bin/AutoUpdate.sh
-new file mode 100644
+new file mode 100755
 index 000000000..58ea674ac
 --- /dev/null
 +++ b/package/base-files/files/bin/AutoUpdate.sh
