@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: teasiu <teasiu@qq.com>
-Date: Sat, 3 Apr 2021 12:12:15 +0800
-Subject: [PATCH 2/2] enable helloworld
+Date: Wed, 12 May 2021 14:29:56 +0800
+Subject: [PATCH] enable helloword
 
 Signed-off-by: teasiu <teasiu@qq.com>
 ---
@@ -9,15 +9,15 @@ Signed-off-by: teasiu <teasiu@qq.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/feeds.conf.default b/feeds.conf.default
-index fc1424dea..2cdb1d393 100644
+index 276b2be..e0474e7 100644
 --- a/feeds.conf.default
 +++ b/feeds.conf.default
-@@ -7,4 +7,4 @@ src-git telephony https://git.openwrt.org/feed/telephony.git
- #src-git management https://github.com/openwrt-management/packages.git
+@@ -6,4 +6,4 @@ src-git telephony https://git.openwrt.org/feed/telephony.git
+ #src-git targets https://github.com/openwrt/targets.git
  #src-git oldpackages http://git.openwrt.org/packages.git
  #src-link custom /usr/src/openwrt/custom-feed
 -#src-git helloworld https://github.com/fw876/helloworld
 +src-git helloworld https://github.com/fw876/helloworld
 -- 
-2.20.1
+2.25.1
 
