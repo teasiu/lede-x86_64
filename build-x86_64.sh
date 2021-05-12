@@ -60,7 +60,6 @@ svn co https://github.com/teasiu/lede-other-apps/trunk/luci-app-blog custom/luci
 git clone -b 18.06 --depth 1 https://github.com/jerrykuku/luci-theme-argon.git custom/luci-theme-argon
 git clone https://github.com/jerrykuku/luci-app-argon-config.git custom/luci-app-argon-config
 git clone https://github.com/xiaorouji/openwrt-passwall passwall
-rm -rf lean/v2ray-plugin
 rm -rf lean/luci-theme-argon
 git clone https://github.com/Hyy2001X/luci-app-shutdown.git custom/luci-app-shutdown
 # clean up packages
