@@ -42,13 +42,13 @@ AB_Firmware_Info=package/base-files/files/etc/openwrt_info
 Version_File="package/lean/default-settings/files/zzz-default-settings"
 Old_Version="$(egrep -o "R[0-9]+\.[0-9]+\.[0-9]+" ${Version_File})"
 Openwrt_Version="${Old_Version}-${Compile_Date}"
-Owner_Repo="https://github.com/teasiu/lede-x86_64"
+User_Repo="https://github.com/teasiu/lede-x86_64"
 TARGET_PROFILE="x86_64"
 Firmware_Type="img.gz"
-echo "${Openwrt_Version}" > ${AB_Firmware_Info}
-echo "${Owner_Repo}" >> ${AB_Firmware_Info}
-echo "${TARGET_PROFILE}" >> ${AB_Firmware_Info}
-echo "${Firmware_Type}" >> ${AB_Firmware_Info}
+echo "Github=${User_Repo}" > ${AB_Firmware_Info}
+echo "CURRENT_Version=${Openwrt_Version}" >> ${AB_Firmware_Info}
+echo "DEFAULT_Device=${TARGET_PROFILE}" >> ${AB_Firmware_Info}
+echo "Firmware_Type=${Firmware_Type}" >> ${AB_Firmware_Info}
 
 # addition packages
 cd "$proj_dir/openwrt/package"
