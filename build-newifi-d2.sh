@@ -34,9 +34,7 @@ for feed in $feed_list; do
       cat "$proj_dir/patches/$feed"/*.patch | patch -p1
     }
 done
-cd "$proj_dir/openwrt"
-wget -O package/base-files/files/bin/AutoUpdate.sh https://github.com/Hyy2001X/AutoBuild-Actions/raw/master/Scripts/AutoUpdate.sh
-chmod +x package/base-files/files/bin/AutoUpdate.sh
+
 # modify firmware-info
 cd "$proj_dir/openwrt"
 Compile_Date=$(date +%Y%m%d)
